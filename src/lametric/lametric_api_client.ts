@@ -18,22 +18,22 @@ export class lametric_api_client {
         sound_repeat : Number,
         cycles: Number){
 
-        var msgPriority : String = 'info'
-        var msgIconType : String = 'info'
-        var msgSoundCategory : String = 'notifications'
-        var msgSoundRepeat : Number = 1
+        var msgPriority : String = 'info';
+        var msgIconType : String = 'info';
+        var msgSoundCategory : String = 'notifications';
+        var msgSoundRepeat : Number = 1;
             
         if(priority != null && priority != '')
-            msgPriority = priority
+            msgPriority = priority;
         
         if(icon_type != null && icon_type != '')
-            msgIconType = icon_type
+            msgIconType = icon_type;
 
         if(sound_category != null && sound_category != '')
-            msgSoundCategory = msgSoundCategory
+            msgSoundCategory = msgSoundCategory;
 
         if(sound_repeat != null && sound_repeat > 0) 
-            msgSoundRepeat = sound_repeat
+            msgSoundRepeat = sound_repeat;
 
         var data = JSON.stringify({
             priority: msgPriority, icon_type: msgIconType, model: { cycles: cycles,  frames: [ { icon: icon, text : text } ] }
