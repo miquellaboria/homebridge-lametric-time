@@ -29,15 +29,35 @@
           "required": true,
           "default": "hello from homekit"
         },
+        "notify_priority": {
+          "title": "Notification Priority",
+          "type": "string",
+          "required": false
+        },
+        "notify_icon_type": {
+          "title": "Notification Icon Type",
+          "type": "string",
+          "required": false
+        },
         "notify_icon": {
-          "title": "Notification Alert",
+          "title": "Notification Icon",
           "type": "string",
           "required": true,
           "default": "4087"
         },
+        "notify_sound_category": {
+          "title": "Notification Sound Category",
+          "type": "string",
+          "required": false
+        },
         "notify_sound": {
           "title": "Notification Sound",
           "type": "string",
+          "required": false
+        },
+        "notify_sound_repeat": {
+          "title": "Notification Sound Repeat",
+          "type": "number",
           "required": false
         },
         "notify_cycles": {

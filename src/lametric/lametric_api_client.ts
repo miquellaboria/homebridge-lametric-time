@@ -9,16 +9,40 @@ export class lametric_api_client {
         this.api_auth = 'Basic ' + Buffer.from('dev:' + apikey).toString('base64');
     }
 
-    public sendNotification(text : String, icon : String, sound: String, cycles: Number){
+    public sendNotification(text : String,
+        priority : String, 
+        icon : String,
+        icon_type : String, 
+        sound: String, 
+        sound_category : String,
+        sound_repeat : Number,
+        cycles: Number){
+
+        var msgPriority : String = 'info'
+        var msgIconType : String = 'info'
+        var msgSoundCategory : String = 'notifications'
+        var msgSoundRepeat : Number = 1
+            
+        if(priority != null && priority != '')
+            msgPriority = priority
+        
+        if(icon_type != null && icon_type != '')
+            msgIconType = icon_type
+
+        if(sound_category != null && sound_category != '')
+            msgSoundCategory = msgSoundCategory
+
+        if(sound_repeat != null && sound_repeat > 0) 
+            msgSoundRepeat = sound_repeat
 
         var data = JSON.stringify({
-            priority: 'warning', model: { cycles: cycles,  frames: [ { icon: icon, text : text } ] }
+            priority: msgPriority, icon_type: msgIconType, model: { cycles: cycles,  frames: [ { icon: icon, text : text } ] }
         });
 
         if(sound != null && sound != '')
             data = JSON.stringify({
-                priority: 'warning', model: { cycles: cycles, frames: [ { icon: icon, text : text } ],
-                    sound: { category: 'notifications', id: sound }
+                priority: msgPriority, icon_type: msgIconType, model: { cycles: cycles, frames: [ { icon: icon, text : text } ],
+                    sound: { category: msgSoundCategory, id: sound, repeat: msgSoundRepeat }
                 }
             });
           
