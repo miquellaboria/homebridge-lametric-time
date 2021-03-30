@@ -30,7 +30,7 @@ export class lametric_api_client {
             msgIconType = icon_type;
 
         if(sound_category != null && sound_category != '')
-            msgSoundCategory = msgSoundCategory;
+            msgSoundCategory = sound_category;
 
         if(sound_repeat != null && sound_repeat > 0) 
             msgSoundRepeat = sound_repeat;
